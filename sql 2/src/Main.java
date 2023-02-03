@@ -9,9 +9,6 @@ public class Main {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/newdb","root","snow");
             Statement statement = connection.createStatement();
             ResultSet rs = statement.executeQuery("SELECT * FROM 'students'");
-            //SELECT DISTINCT prende solo valori non doppi della determinata colonna
-            rs.next();
-
 
             //statement.executeUpdate("create table if not exists students(student_id int(10) auto_increment primary key not null)");
             //statement.executeUpdate("alter table students add last_name varchar(30) not null after student_id");

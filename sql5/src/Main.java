@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 
-public class mainSQL5 {
+public class main {
     public static void main(String[] args) {
         String url = "jdbc:mysql://localhost:3306/newdb";
         String user = "root";
@@ -26,31 +26,20 @@ public class mainSQL5 {
                     "AS ( SELECT first_name,last_name FROM 'students' WHERE country = 'Germany' )";
             statement.executeUpdate(viewGer);
 
-            ArrayList<Student> italians = new ArrayList<Student>();
-            ArrayList<Student> germans = new ArrayList<Student>();
+            ArrayList<Student> italianStudent  = new ArrayList<>();
+            ArrayList<Student> germanStudent  = new ArrayList<>();
 
-            ResultSet rsIta = statement.executeQuery( "SELECT first_name, last_name FROM newdb.italian_student");
+            ResultSet resultSetGermany = statement.executeQuery(viewGer);
+            ResultSet resultSetItaly = statement.executeQuery(viewIta);
 
-            ResultSet rsGer = statement.executeQuery( "SELECT first_name, last_name FROM newdb.germany_student");
-
-            while (rsIta.next()){
-                italians.add(new Student(rsIta.getString("first_name"), rsIta.getString("last_name")));
-            }
-            while (rsGer.next()){
-                germans.add(new Student(rsGer.getString("first_name"), rsGer.getString("last_name")));
-            }
-
-            for (Student it : italians ){
-                it.studentDetails();
-            }
-            for (Student ger : germans){
-                ger.studentDetails();
+            while (resultSetItaly.next()){
+                germanStudent.add(new Student())
             }
 
 
 
         }catch (Exception e){
-        e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }
