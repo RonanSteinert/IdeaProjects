@@ -47,8 +47,6 @@ public class mainSQL5 {
                 ger.studentDetails();
             }
 
-
-
         }catch (Exception e){
         e.printStackTrace();
         }
